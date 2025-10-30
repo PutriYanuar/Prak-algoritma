@@ -1,0 +1,36 @@
+total = 0.0
+
+while True:
+    umur = input("masukkan umur: ")
+    if umur == "":
+        break
+    umur = int(umur)
+
+    if umur <= 2:
+        harga = 0.0
+        print("Gratis")
+    elif 3 <= umur <= 12:
+        harga = 14.0
+        print("Harga $14.00")
+    elif umur >= 65:
+        harga = 18.0
+        print("Harga $18.00")
+    else:
+        harga = 23.0
+        print("Harga $23.00")
+
+    total += harga
+    print(f"Running total: {total:.2f}")
+
+if total > 0:
+    bayar = float(input("masukkan jumlah uang: "))
+    if bayar > total:
+        kembalian = bayar - total
+        print(f"Running kembalian: {kembalian:.2f}")
+    elif bayar == total:
+        print("Pembayaran pas, terima kasih!")
+    else:
+        kurang = total - bayar
+        print(f"Uang kurang: {kurang:.2f}")
+else:
+    print("Tidak ada tiket yang dibeli.")
