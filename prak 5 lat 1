@@ -1,0 +1,30 @@
+def konversi_nilai(huruf):
+    nilai = {
+        'A': 4.00,
+        'A-': 3.75,
+        'B+': 3.50,
+        'B': 3.00,
+        'B-': 2.75,
+        'C+': 2.50,
+        'C': 2.00,
+        'C-': 1.75,
+        'D': 1.50,
+        'E': 1.25
+    }
+    return nilai.get(huruf.upper(), 0)
+
+daftar_nilai = []
+
+while True:
+    huruf = input("masukkan nilai: ")
+    if huruf == "":
+        break
+    nilai = konversi_nilai(huruf)
+    print("nilai =", nilai)
+    daftar_nilai.append(nilai)
+
+if len(daftar_nilai) > 0:
+    rata_rata = sum(daftar_nilai) / len(daftar_nilai)
+    print("rata - rata nya adalah:", rata_rata)
+else:
+    print("Tidak ada nilai yang dimasukkan.")
