@@ -1,0 +1,36 @@
+# Fungsi untuk mengonversi nilai huruf ke angka
+def konversi_nilai(huruf='A'):
+    if huruf.upper() == 'A':
+        return 4
+    elif huruf.upper() == 'B':
+        return 3
+    elif huruf.upper() == 'C':
+        return 2
+    elif huruf.upper() == 'D':
+        return 1
+    elif huruf.upper() == 'E':
+        return 0
+    else:
+        return None
+
+# Fungsi untuk menghitung rata-rata
+def rata_rata(nilai_list):
+    if len(nilai_list) == 0:
+        return 0
+    return sum(nilai_list) / len(nilai_list)
+
+# Program utama
+nilai_angka = []
+while True:
+    huruf = input("Masukkan nilai: ")
+    if huruf == '':
+        break
+    angka = konversi_nilai(huruf)
+    if angka is not None:
+        print(f"nilai = {angka}")
+        nilai_angka.append(angka)
+    else:
+        print("Nilai huruf tidak valid!")
+
+rata = rata_rata(nilai_angka)
+print(f"Rata-ratanya adalah: {rata:.1f}")
