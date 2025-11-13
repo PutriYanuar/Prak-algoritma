@@ -1,0 +1,19 @@
+# Fungsi untuk mengecek apakah bilangan prima
+def cek_prima(angka):
+    if angka < 2:
+        return False
+    for i in range(2, int(angka**0.5) + 1):
+        if angka % i == 0:
+            return False
+    return True
+
+# Fungsi utama untuk menerima input dan menampilkan hasil
+def main():
+    angka = int(input("Masukkan angka: "))
+    if cek_prima(angka):
+        print(f"{angka} adalah bilangan Prima")
+    else:
+        print(f"{angka} bukanlah bilangan Prima")
+
+# Panggil fungsi utama
+main()
