@@ -1,0 +1,32 @@
+def tulis_biodata():
+    # Input data dari user
+    nama = input("Masukkan Nama mu: ")
+    umur = input("Masukkan Umur mu: ")
+    alamat = input("Masukkan Alamatmu: ")
+    email = input("Masukkan Emailmu: ")
+    dosen = input("Masukkan Dosen Walimu: ")
+
+    # Tulis ke file
+    with open("Biodata.txt", "w") as file:
+        file.write("Berikut Ini Data Kamu\n")
+        file.write(f"Nama   : {nama}\n")
+        file.write(f"Umur   : {umur}\n")
+        file.write(f"Alamat : {alamat}\n")
+        file.write(f"Email  : {email}\n")
+        file.write(f"Dosen Wali : {dosen}\n")
+
+    print("\nData berhasil disimpan ke Biodata.txt\n")
+
+
+def baca_biodata():
+    try:
+        with open("Biodata.txt", "r") as file:
+            print(file.read())
+    except FileNotFoundError:
+        print("File belum dibuat! Silakan isi biodata terlebih dahulu.")
+
+
+# Menu utama
+print("=== PROGRAM BIODATA ===")
+tulis_biodata()      # simpan / tulis ke file
+baca_biodata()       # tampilkan isi file

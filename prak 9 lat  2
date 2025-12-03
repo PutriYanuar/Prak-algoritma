@@ -1,0 +1,56 @@
+def buat_file():
+    nama_file = input("Masukkan Nama File: ")
+    with open(nama_file + ".txt", "w") as file:
+        nama = input("Masukkan Nama: ")
+        nim = input("Masukkan NIM: ")
+        angkatan = input("Masukkan Angkatan: ")
+        file.write(f"Nama: {nama}\n")
+        file.write(f"NIM: {nim}\n")
+        file.write(f"Angkatan: {angkatan}\n")
+    print("\nFile Berhasil Dibuat dan Ditulis\n")
+
+
+def baca_file():
+    nama_file = input("Masukkan Nama File: ")
+    try:
+        with open(nama_file + ".txt", "r") as file:
+            print("\nIsi File:")
+            print(file.read())
+    except FileNotFoundError:
+        print("\nFile Tidak Ditemukan!\n")
+
+
+def tambah_text():
+    nama_file = input("Masukkan Nama File: ")
+    try:
+        with open(nama_file + ".txt", "a") as file:
+            sahabat = input("Masukkan Nama Sahabatmu: ")
+            catatan = input("Masukkan Catatan Tambahan kamu: ")
+            file.write(f"Nama Sahabat: {sahabat}\n")
+            file.write(f"Catatan: {catatan}\n")
+        print("\nData Berhasil Ditambahkan\n")
+    except FileNotFoundError:
+        print("\nFile Tidak Ditemukan!\n")
+
+
+# Program utama dengan perulangan menu
+while True:
+    print("===== Program File Handling =====")
+    print("1. Membuat dan Menulis File")
+    print("2. Membaca File")
+    print("3. Menambahkan Text Pada File")
+    print("4. Keluar Dari Program")
+
+    pilihan = input("\nMasukkan Pilihan Berupa Angka (1/2/3/4): ")
+
+    if pilihan == "1":
+        buat_file()
+    elif pilihan == "2":
+        baca_file()
+    elif pilihan == "3":
+        tambah_text()
+    elif pilihan == "4":
+        print("\nTerima Kasih Sudah Menggunakan Program Saya")
+        break
+    else:
+        print("\nPilihan Tidak Valid! Silakan Input Ulang\n")
